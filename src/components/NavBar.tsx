@@ -1,7 +1,9 @@
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 
 export const NavBar = () => {
+    const user = useUser();
+
     return (        
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -22,11 +24,13 @@ export const NavBar = () => {
                             Home
                         </Link>
                     </li>
-                    <li>
-                        <Link href="/list-hunt" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">
-                            Post a Hunt
-                        </Link>
-                    </li>
+                    {user.isSignedIn && (
+                        <li>
+                            <Link href="/list-hunt" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">
+                                Post a Hunt
+                            </Link>
+                        </li>
+                    )}
                     <li>
                     <SignInButton>
                         <span className="text-white cursor-pointer hover:text-blue-400">Sign In</span>

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useForm } from 'react-hook-form';
+import { api } from "~/utils/api";
 
 type ListHuntForm = {
     name: string;
@@ -8,8 +9,14 @@ type ListHuntForm = {
 };
 
 export default function ListHunt() {
+const createListing = api.listing.create.useMutation();
 const { register, handleSubmit } = useForm<ListHuntForm>();
-  const onSubmit = (formData: ListHuntForm) => console.log(formData);
+const onSubmit = (formData: ListHuntForm) => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    createListing.mutateAsync({
+        ...formData,
+    });
+};
 
   return (
     <>
@@ -20,6 +27,7 @@ const { register, handleSubmit } = useForm<ListHuntForm>();
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
             <form 
                 className="flex flex-col gap-4"
+                // eslint-disable-next-line @typescript-eslint/no-misused-promises
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <div>
