@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useForm } from 'react-hook-form';
 import { api } from "~/utils/api";
 
@@ -10,11 +11,16 @@ type ListHuntForm = {
 
 export default function ListHunt() {
 const createListing = api.listing.create.useMutation();
+const router = useRouter();
+
 const { register, handleSubmit } = useForm<ListHuntForm>();
 const onSubmit = (formData: ListHuntForm) => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     createListing.mutateAsync({
         ...formData,
+        price: parseFloat(formData.price),
+    }).then(() => {
+        router.push("/");
     });
 };
 
