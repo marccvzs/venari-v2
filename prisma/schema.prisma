@@ -6,17 +6,27 @@ generator client {
 }
 
 datasource db {
-    provider = "mysql"
-    url      = env("DATABASE_URL")
+    provider     = "mysql"
+    url          = env("DATABASE_URL")
     relationMode = "prisma"
 }
 
 model Listing {
-    id        String   @id @default(cuid())
-    userId    String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    name      String
+    id          String    @id @default(cuid())
+    userId      String
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+    name        String
     description String
-    price     Float  
+    price       Float
+    message     Message[]
+}
+
+model Message {
+    id           String  @id @default(cuid())
+    listing      Listing @relation(fields: [listingId], references: [id])
+    listingId    String
+    fromUser     String
+    fromUserName String
+    message      String
 }
