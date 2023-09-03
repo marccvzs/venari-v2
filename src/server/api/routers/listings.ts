@@ -2,10 +2,19 @@ import { z } from "zod";
 
 import {
   createTRPCRouter,
-  protectedProcedure
+  protectedProcedure,
+  publicProcedure
 } from "~/server/api/trpc";
 
 export const listingsRouter = createTRPCRouter({
+  getAll: publicProcedure
+  .query(async ({ ctx }) => {
+      const listings = await ctx.prisma.listing.findMany({
+        take: 100,
+      });
+
+    return listings;
+  }),
 
   create: protectedProcedure
     .input(
