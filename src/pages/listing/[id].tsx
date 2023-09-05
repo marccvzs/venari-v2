@@ -22,7 +22,7 @@ const ListingView: NextPage<{ id: string }> = ({ id }) => {
       <Head>
         <title>{`${data.name}`}</title>
       </Head>
-      <main className="flex min-h-screen flex-col justify-center bg-gradient-to-b from-[#AE8E7E] to-[#54504A]">
+      <main className="flex min-h-screen flex-col justify-center">
         <div className="container mx-auto flex flex-col gap-12">
           <h1 className="mt-12 pl-4 text-4xl">{data.name.toUpperCase()}</h1>
           <p>{data.description}</p>

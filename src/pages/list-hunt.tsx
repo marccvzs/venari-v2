@@ -20,7 +20,7 @@ const onSubmit = (formData: ListHuntForm) => {
         ...formData,
         price: parseFloat(formData.price),
     }).then(() => {
-        router.push("/");
+        router.push("/").catch(console.error);
     });
 };
 

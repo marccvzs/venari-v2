@@ -1,12 +1,12 @@
-import { SignIn } from '@clerk/nextjs';
+import { SignUp } from '@clerk/nextjs';
 
-const SignInPage = () => (
+const SignUpPage = () => (
     <div style={styles}>
-        <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
+        <SignUp path="/sign-in" routing="path" signInUrl="/sign-up" />
     </div>
 );
 
-export default SignInPage;
+export default SignUpPage;
 
 const styles = {
     width: "100vw",

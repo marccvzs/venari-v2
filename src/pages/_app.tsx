@@ -5,12 +5,19 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import { NavBar } from "~/components/NavBar";
+import Head from "next/head";
+import { Toaster } from "react-hot-toast";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider {...pageProps}>
-      <div className="light:text-black dark:text-white">
+      <Head>
+        <title>Venari</title>
+        <meta name="description" content="Book your next hunt with us!" />
+      </Head>
+      <div>
         <NavBar />
+        <Toaster position="bottom-center" />
         <Component {...pageProps} />
       </div>
     </ClerkProvider>

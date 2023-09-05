@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply bg-gradient-to-b from-[#AE8E7E] to-[#54504A];
+
+    overscroll-behavior: none,
+}

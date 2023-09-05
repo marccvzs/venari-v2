@@ -1,4 +1,5 @@
 import { listingsRouter } from "~/server/api/routers/listings";
+import { vendorProfileRouter } from "~/server/api/routers/vendorProfile";
 import { createTRPCRouter } from "~/server/api/trpc";
 
 /**
@@ -8,6 +9,7 @@ import { createTRPCRouter } from "~/server/api/trpc";
  */
 export const appRouter = createTRPCRouter({
   listing: listingsRouter,
+  vendorProfile: vendorProfileRouter,
 });
 
 // export type definition of API
