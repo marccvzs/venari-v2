@@ -90,16 +90,18 @@ export const listingsRouter = createTRPCRouter({
     .input(
       z.object({
         vendorId: z.string(),
-      })
+      }),
     )
     .query(({ ctx, input }) =>
-      ctx.prisma.listing.findMany({
-        where: {
-          vendorId: input.vendorId,
-        },
-        take: 100,
-        orderBy: [{ createdAt: "desc" }],
-      }).then(addVendorDataToListings)
+      ctx.prisma.listing
+        .findMany({
+          where: {
+            vendorId: input.vendorId,
+          },
+          take: 100,
+          orderBy: [{ createdAt: "desc" }],
+        })
+        .then(addVendorDataToListings),
     ),
   create: protectedProcedure
     .input(

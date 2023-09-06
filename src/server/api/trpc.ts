@@ -6,7 +6,6 @@
  * TL;DR - This is where all the tRPC server stuff is created and plugged in. The pieces you will
  * need to use are documented accordingly near the end.
  */
-import type { SignedInAuthObject, SignedOutAuthObject } from "@clerk/nextjs/dist/types/server";
 import { getAuth } from '@clerk/nextjs/server';
 import { TRPCError, initTRPC } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";

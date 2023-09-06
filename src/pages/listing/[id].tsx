@@ -1,7 +1,6 @@
 import { useUser } from "@clerk/nextjs";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { generateSSGHelper } from "~/server/helpers/ssgHelper";
 

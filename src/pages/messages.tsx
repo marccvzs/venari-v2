@@ -12,7 +12,7 @@ const Messages: NextPage = () => {
       <Head>
         <title>Messages</title>
       </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#AE8E7E] to-[#54504A]">
+      <main className="flex min-h-screen flex-col items-center justify-center">
         <h1 className="text-4xl">Hunts Available</h1>
         <div className="container grid grid-cols-3 items-center justify-center gap-12 px-4 py-16 ">
           {data?.map((message) => <div key={message.id}>{message.message}</div>)}

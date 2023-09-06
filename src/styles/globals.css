@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-gradient-to-b from-[#AE8E7E] to-[#54504A];
+    @apply bg-gradient-to-b from-[#AE8E7E] to-[#54504A] bg-no-repeat h-screen overflow-y-scroll;
 
     overscroll-behavior: none,
 }
