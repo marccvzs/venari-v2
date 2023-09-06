@@ -7,6 +7,7 @@ import "~/styles/globals.css";
 import { NavBar } from "~/components/NavBar";
 import Head from "next/head";
 import { Toaster } from "react-hot-toast";
+import { Search } from "~/components/search";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
@@ -15,11 +16,12 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <title>Venari</title>
         <meta name="description" content="Book your next hunt with us!" />
       </Head>
-      <div>
+      <>
         <NavBar />
+          <Search />
         <Toaster position="bottom-center" />
         <Component {...pageProps} />
-      </div>
+      </>
     </ClerkProvider>
   );
 };
